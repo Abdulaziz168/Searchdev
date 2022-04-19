@@ -1,7 +1,4 @@
 .single {
-  color: red;
+  color: red!important;
 }
 
-body {
-  background-color: aqua;
-}

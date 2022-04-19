@@ -1,31 +1,23 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Project,Tag,Review
 
 
-projectsList = [{
-    'id':'1',
-    'title':'Ecommerce Website',
-    'description':'Fully functional ecommerce website'
-},
-{
-    'id':'2',
-    'title':'Portfolio Website',
-    'description':'This was a project where I build'
-},
-{
-    'id':'3',
-    'title':'Social Network',
-    'description':'Awesome open source project I am still working on'
-},
-]
 
 
 def projects(request):
-    return render(request,'projects.html')
+    projects = Project.objects.all()
+    context = {
+        'projects':projects
+    }
+    return render(request,'projects.html',context)
 
 
 def project(request,pk):
-
+    project = Project.objects.get(pk=pk)
+    tags = Tag.objects.all()
     context = {
+        'project':project,
+        'tags':tags
     }
     return render(request,'single-projects.html',context)
