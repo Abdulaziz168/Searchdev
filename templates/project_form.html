@@ -1,0 +1,23 @@
+{%extends 'base.html' %} {%load static%} {%block content %}
+<!-- <link rel="stylesheet" href="{%static 'css/form.css'%}" /> -->
+<h1>Project Form</h1>
+
+<form action="" method="post">
+  {%csrf_token%} {{form.as_p}}
+  <input type="submit" value="Submit" />
+</form>
+<!-- <div class="container my-5 mx-auto">
+  <div class="formed">
+    <div class="brand-logo"></div>
+    <div class="brand-title">TWITTER</div>
+    <div class="inputs">
+      <label id="form_label">EMAIL</label>
+      <input id="form_input" type="email" placeholder="example@test.com" />
+      <label>PASSWORD</label>
+      <input type="password" placeholder="Min 6 charaters long" />
+      <button id="form_btn" type="submit">LOGIN</button>
+    </div>
+  </div>
+</div> -->
+
+{%endblock %}

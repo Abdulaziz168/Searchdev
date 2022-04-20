@@ -1,11 +1,34 @@
 {%extends 'base.html' %} {%block content%}
 <h1>Projects page</h1>
-{%for project in projects %}
+
 <div id="logo">
-    <ul>
-        <li>{{project.title}} ---  <a id="link" href="/project/{{project.pk}}">{{project.description}}</a> </li>
-    </ul>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Project</th>
+        <th scope="col">Votes</th>
+        <th scope="col">Ratio</th>
+        <th scope="col">View</th>
+      </tr>
+    </thead>
+    <tbody>
+      {%for project in projects%}
+      <tr>
+        <th scope="row">{{project.pk|slice:"5"}}</th>
+        <td>
+          {{project.title}}
+        </td>
+        <td>{{project.vote_total}}</td>
+        <td>{{project.vote_ratio}}%</td>
+        <td>
+          <a href="{%url 'update-project' project.id %}">Edit</a>
+          <a href="{%url 'project' project.id %}">View</a>
+        </td>
+      </tr>
+      {%endfor%}
+    </tbody>
+  </table>
 </div>
 
-{%endfor%}
 {%endblock%}

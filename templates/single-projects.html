@@ -1,5 +1,11 @@
 {%extends 'base.html' %} {%load static%}{%block content%}
 <h1 class="single">Welcome to {{project.title}} Page</h1>
 <br />
+<hr />
+{%for tag in tags %}
+<span class="single_span"><b>{{tag.name}},</b></span>
+{%endfor%}
+<hr />
+<p>{{project.description}}</p>
 
 {%endblock%}

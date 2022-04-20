@@ -1,4 +1,17 @@
 .single {
-  color: red!important;
+  color: red !important;
 }
 
+.single_span {
+  border: 1px solid gray;
+  font-size: large;
+  padding: 4px;
+  margin: 5px;
+}
+
+table {
+  border: 2px solid gray;
+}
+
+.special {
+}
